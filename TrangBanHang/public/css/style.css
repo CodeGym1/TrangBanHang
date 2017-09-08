@@ -76,8 +76,8 @@ body{
     height: 50px;
 }
 .list-group .ds{
-    height: 60px;
-    line-height: 50px;
+    height: 50px;
+    line-height: 40px;
     background-color: #F7F8F9;
 }
 .list-group .ds a{

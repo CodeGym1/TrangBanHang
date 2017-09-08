@@ -50,7 +50,7 @@
                         </li>
                         <li class="list-group-item ds ">
                             <span class="glyphicon glyphicon-phone ">&nbsp;</span>
-                            <a href="#" class="red_hover" >Iphone </a>
+                            <a href="{{route('chitiet_loaisp')}}" class="red_hover" >Iphone </a>
                         </li>
                         <li class="list-group-item ds ">
                             <span class="glyphicon glyphicon-phone ">&nbsp;</span>
@@ -88,18 +88,18 @@
                     </div>
                 </div>
                 <div class="row">
-                    @foreach($products as $products)
+                    @foreach($products as $product)
                     <div class="col-md-6 col-s  m-6">
                         <div class="row">
                             <div class="col-md-6 col-xs-6 col-sm-6">
-                                <img class="img-responsive img-thumbnail" src="images/{{$products->image}}" width="100%">
+                                <img class="img-responsive img-thumbnail" src="images/{{$product->image}}" width="100%">
                             </div>
                             <div class="col-md-6 text-center col-xs-6 col-sm-6">
                                 <div class="height">
-                                    <span ><strong><a class="red_hover" href="#">{{$products->name}}</a></strong></span>
+                                    <span ><strong><a class="red_hover" href="#">{{$product->name}}</a></strong></span>
                                 </div>
                                 <div >
-                                    <p><span> Giá: &nbsp; </span><span class="gia">{{$products->price}}</span></p>
+                                    <p><span> Giá: &nbsp; </span><span class="gia">{{$product->price}}</span></p>
                                 </div>
                                 <div> <a href="#" class="select"> Mua hàng</a></div>
 
@@ -114,10 +114,11 @@
                 </div>
 
 
+
             </div>
             <div class="col-md-3 visible-lg visible-md">
                 <div class="row">
-                    <img src="images/home-banner-right.jpg" class="img-responsive" width="100%">
+                    <img src="images/home-banner-right.jpg" class="img-responsive" width="85%">
                 </div>
             </div>
         </div>
@@ -143,105 +144,25 @@
         </div>
         <hr>
         <div class="row khung">
+            @foreach($loaisp as $type)
             <div class="col-md-4 col-sm-4 col-xs-12">
-                <h3 class="text-center">Iphone</h3><hr class="gach_duoi">
+                <h3 class="text-center">{{$type->name}}</h3><hr class="gach_duoi">
+                @foreach($type->products as $product)
                 <div class="row">
                     <div class="col-md-4 col-xs-6 text-center">
-                        <img src="images/13090htconem9goldonsilver.jpg" class="img-responsive " width="100%">
+                        <img src="images/{{$product->image}}" class="img-responsive " width="100%">
                     </div>
                     <div class="col-md-6 text-center col-xs-6">
-                        <span ><strong><a class="red_hover" href="#">Tên Điện Thoại</a></strong></span>
-                        <p><span> Giá: &nbsp; </span><span class="gia">9999999 đ</span></p>
+                        <span ><strong><a class="red_hover" href="#">{{$product->name}}</a></strong></span>
+                        <p><span> Giá: &nbsp; </span><span class="gia">{{$product->price}} đ</span></p>
                         <a href="#" class="select"> Mua hàng</a>
                     </div>
                 </div>
-                <div class="row ">
-                    <div class="col-md-4 col-xs-6 text-center">
-                        <img src="images/1.png" class="img-responsive " width="100%">
-                    </div>
-                    <div class="col-md-6 text-center col-xs-6">
-                        <span ><strong><a class="red_hover" href="#">Tên Điện Thoại</a></strong></span>
-                        <p><span> Giá: &nbsp; </span><span class="gia">9999999 đ</span></p>
-                        <a href="#" class="select"> Mua hàng</a>
-                    </div>
-                </div>
-                <div class="row ">
-                    <div class="col-md-4 col-xs-6 text-center">
-                        <img src="images/1.png" class="img-responsive " width="100%">
-                    </div>
-                    <div class="col-md-6 text-center col-xs-6">
-                        <span ><strong><a class="red_hover" href="#">Tên Điện Thoại</a></strong></span>
-                        <p><span> Giá: &nbsp; </span><span class="gia">9999999 đ</span></p>
-                        <a href="#" class="select"> Mua hàng</a>
-                    </div>
-                </div>
+                @endforeach
+
             </div>
-            <div class="col-md-4 col-sm-4 col-xs-12">
-                <h3 class="text-center">Asus</h3><hr class="gach_duoi">
-                <div class="row">
-                    <div class="col-md-4 col-xs-6 text-center">
-                        <img src="images/1.png" class="img-responsive " width="100%">
-                    </div>
-                    <div class="col-md-6 text-center col-xs-6">
-                        <span ><strong><a class="red_hover" href="#">Tên Điện Thoại</a></strong></span>
-                        <p><span> Giá: &nbsp; </span><span class="gia">9999999 đ</span></p>
-                        <a href="#" class="select"> Mua hàng</a>
-                    </div>
-                </div>
-                <div class="row ">
-                    <div class="col-md-4 col-xs-6 text-center">
-                        <img src="images/1.png" class="img-responsive " width="100%">
-                    </div>
-                    <div class="col-md-6 text-center col-xs-6">
-                        <span ><strong><a class="red_hover" href="#">Tên Điện Thoại</a></strong></span>
-                        <p><span> Giá: &nbsp; </span><span class="gia">9999999 đ</span></p>
-                        <a href="#" class="select"> Mua hàng</a>
-                    </div>
-                </div>
-                <div class="row ">
-                    <div class="col-md-4 col-xs-6 text-center">
-                        <img src="images/1.png" class="img-responsive " width="100%">
-                    </div>
-                    <div class="col-md-6 text-center col-xs-6">
-                        <span ><strong><a class="red_hover" href="#">Tên Điện Thoại</a></strong></span>
-                        <p><span> Giá: &nbsp; </span><span class="gia">9999999 đ</span></p>
-                        <a href="#" class="select"> Mua hàng</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 col-sm-4 col-xs-12">
-                <h3 class="text-center">Samsung</h3><hr class="gach_duoi">
-                <div class="row">
-                    <div class="col-md-4 col-xs-6 text-center">
-                        <img src="images/1.png" class="img-responsive " width="100%">
-                    </div>
-                    <div class="col-md-6 text-center col-xs-6">
-                        <span ><strong><a class="red_hover" href="#">Tên Điện Thoại</a></strong></span>
-                        <p><span> Giá: &nbsp; </span><span class="gia">9999999 đ</span></p>
-                        <a href="#" class="select"> Mua hàng</a>
-                    </div>
-                </div>
-                <div class="row ">
-                    <div class="col-md-4 col-xs-6 text-center">
-                        <img src="images/1.png" class="img-responsive " width="100%">
-                    </div>
-                    <div class="col-md-6 text-center col-xs-6">
-                        <span ><strong><a class="red_hover" href="#">Tên Điện Thoại</a></strong></span>
-                        <p><span> Giá: &nbsp; </span><span class="gia">9999999 đ</span></p>
-                        <a href="#" class="select"> Mua hàng</a>
-                    </div>
-                </div>
-                <div class="row ">
-                    <div class="col-md-4 col-xs-6 text-center">
-                        <img src="images/1.png" class="img-responsive " width="100%">
-                    </div>
-                    <div class="col-md-6 text-center col-xs-6">
-                        <span ><strong><a class="red_hover" href="#">Tên Điện Thoại</a></strong></span>
-                        <p><span> Giá: &nbsp; </span><span class="gia">9999999 đ</span></p>
-                        <a href="#" class="select"> Mua hàng</a>
-                    </div>
-                </div>
-            </div>
+            @endforeach
+
         </div>
     </div>
     

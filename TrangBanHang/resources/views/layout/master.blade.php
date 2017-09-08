@@ -15,7 +15,6 @@
 <body>
 @include('layout.header')
 @include('layout.menu')
-
 @yield('Noidung')
 
 @include('layout.footer')

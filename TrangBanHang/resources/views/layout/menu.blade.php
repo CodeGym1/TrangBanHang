@@ -24,12 +24,12 @@
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav menu ">
-                <li class=""><a href="#">Trang chủ</a></li>
+                <li class=""><a href="{{route('trang-chu')}}" >Trang chủ</a></li>
                 <li><a href="#">Giới thiệu</a></li>
                 <li class="dropdown ">
                     <a class="dropdown-toggle " data-toggle="dropdown" href="#">Danh mục sản phẩm <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="#">Iphone</a></li>
+                        <li><a href="{{route('chitiet_loaisp')}}">Iphone</a></li>
                         <li><a href="#">Samsung</a></li>
                         <li><a href="#">Oppo</a></li>
                         <li><a href="#">Asus</a></li>
