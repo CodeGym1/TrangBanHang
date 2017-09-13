@@ -17,12 +17,13 @@ class CreateProductsTable extends Migration
             $table ->increments('id');
             $table ->string('name');
             $table ->integer('id_type')-> unsigned();
-            $table ->foreign('id_type')-> references('id') ->on('type_products');
+
             $table ->string('description');
             $table ->float('price');
             $table ->string('image');
-            $table ->int('new',2);
+            $table ->boolean('is_new');
             $table ->timestamps();
+            $table ->foreign('id_type')-> references('id') ->on('type_product');
 
         });
     }
