@@ -3,7 +3,7 @@
         <div class="row ">
             <div class="col-md-3 col-sm-3 col-xs-6">
                 <div class="row khung">
-                    <img class="img-responsive" src="images/logo.png " >
+                    <img class="img-responsive" src="/images/logo.png " >
                 </div>
             </div>
             <div class="col-md-6 col-sm-6 khung hidden-xs ">
@@ -20,8 +20,8 @@
                 </div>
             </div>
             <div class="col-md-3 col-xs-6 khung">
-                <span>Hotline:<a href="#" style="color: red" class="red_hover" >01687479508</a></span><br>
-                <span>email:<a><i> phanchaudhv@gmail.com</i></a></span>
+                <span class="fa fa-phone">Hotline:<a href="#" style="color: red" class="red_hover" >01687479508</a></span><br>
+                <span class="fa fa-home">email:<a><i> phanchaudhv@gmail.com</i></a></span>
             </div>
         </div>
     </div>

@@ -29,26 +29,51 @@
                 <li class="dropdown ">
                     <a class="dropdown-toggle " data-toggle="dropdown" href="#">Danh mục sản phẩm <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="{{route('chitiet_loaisp')}}">Iphone</a></li>
-                        <li><a href="#">Samsung</a></li>
-                        <li><a href="#">Oppo</a></li>
-                        <li><a href="#">Asus</a></li>
-                        <li><a href="#">Sony</a></li>
-                        <li><a href="#">Acer</a></li>
-                        <li><a href="#">Khác</a></li>
+                        @foreach($loaisp as $loai)
+                        <li><a href="{{route('chitiet_loaisp',$loai->id)}}">{{$loai->name}}</a></li>
+                        @endforeach
                     </ul>
                 </li>
                 <li><a href="#">Liên hệ</a></li>
             </ul>
 
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span> Giỏ hàng</a></li>
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span> Tài khoản</a>
+                    <a href="#" class="dropdown-toggle " data-toggle="dropdown"><span class="glyphicon glyphicon-shopping-cart"></span>Giỏ hàng ({{Session::has('cart')?Session('cart')->totalQty:  'Trống'}})</a>
                     <ul class="dropdown-menu">
-                        <li><a href="#">Đăng Nhập</a></li>
-                        <li><a href="#">Đăng ký</a></li>
+                        @if(Session::has('cart'))
+                            @foreach($product_cart as $product)
+                        <li style="height: 100px;">
+                            <div class="col-md-3">
+                                <div class="row">
+                                <img src="/images/{{$product['item']['image']}}" class="img-responsive" width="100%">
+                                </div>
+                            </div>
+                            <div class="col-md-9">
+                                <span class="height">{{$product['item']['name']}}</span><br>
+                                Price:<span  class="cart-item-amount">{{$product['qty']}}*<span> <span class="gia"> {{$product['item']['price']}}</span><br>
+                                    </span>
+                                </span>
+                                <div class="text-right">
+                                    <a href="{{route('xoagiohang',$product['item']['id'])}}"><span class="glyphicon glyphicon-folder-close" > xóa</span></a>
+                                </div>
 
+                            </div>
+
+                        </li>
+                            @endforeach
+                        @endif
+                        <li>
+                        <div>Tổng tiền: <span class="cart-total-value">{{Session::has('cart')? Session::get('cart')->totalPrice: 0}} đồng</span></div>
+                        </li>
+                        <li><a href="{{route('register')}}" class="text-center"><button class="bg-success">Tiến hành đặt hàng</button></a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle " data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span> Tài khoản</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="{{route('login')}}">Đăng Nhập</a></li>
+                        <li><a href="{{route('register')}}">Đăng ký</a></li>
                     </ul>
                 </li>
             </ul>

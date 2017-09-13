@@ -37,6 +37,7 @@ body{
 }
 .dropdown-menu{
     background-color: #F1F6F8;
+    z-index: 9999999999;
 }
 .navbar-header form{
     padding-top: 7px;
@@ -61,9 +62,11 @@ body{
     color: black;
 }
 .collapse .nav .dropdown .dropdown-menu li{
-    border-bottom: 1px dotted white;
+    border-bottom: 2px solid white;
     height: 50px;
-    width: 170px;
+    width: 200px;
+
+
 }
 .collapse .nav .dropdown .dropdown-menu li a:hover{
     color: red;

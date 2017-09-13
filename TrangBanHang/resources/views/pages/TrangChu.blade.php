@@ -1,42 +1,6 @@
 @extends('layout.master')
 
 @section('Noidung')
-    <div class="container">
-        <div class="row">
-            <div id="myCarousel" class="carousel slide" data-ride="carousel">
-                <!-- Indicators -->
-                <ol class="carousel-indicators">
-                    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                    <li data-target="#myCarousel" data-slide-to="1"></li>
-                </ol>
-
-                <!-- Wrapper for slides -->
-                <div class="carousel-inner" role="listbox">
-
-                    <div class="item active">
-                        <a href="#"><img src="images/home-slider-1.jpg" alt="Image" width="100%"></a>
-                    </div>
-                    @foreach($slide as $sl)
-                    <div class="item ">
-
-                        <a href="#"><img src="images/{{$sl->image}}" alt="Image" width="100%"></a>
-
-                    </div>
-                    @endforeach
-                </div>
-
-                <!-- Left and right controls -->
-                <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-                    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-                    <span class="sr-only">Previous</span>
-                </a>
-                <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-                    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-                    <span class="sr-only">Next</span>
-                </a>
-            </div>
-        </div>
-    </div>
     <div class="container" >
         <div class="row khung"  >
 
@@ -48,34 +12,12 @@
                             <span class="glyphicon glyphicon-list">&nbsp;</span>
                             <span class="text-center">Danh mục sản phẩm</span>
                         </li>
+                        @foreach($loaisp as $loai)
                         <li class="list-group-item ds ">
                             <span class="glyphicon glyphicon-phone ">&nbsp;</span>
-                            <a href="{{route('chitiet_loaisp')}}" class="red_hover" >Iphone </a>
+                            <a href="{{route('chitiet_loaisp',$loai->id )}}" class="red_hover" >{{$loai->name}}</a>
                         </li>
-                        <li class="list-group-item ds ">
-                            <span class="glyphicon glyphicon-phone ">&nbsp;</span>
-                            <a href="#" class="red_hover" >Samsung </a>
-                        </li>
-                        <li class="list-group-item ds ">
-                            <span class="glyphicon glyphicon-phone ">&nbsp;</span>
-                            <a href="#" class="red_hover" >Oppo</a>
-                        </li>
-                        <li class="list-group-item ds ">
-                            <span class="glyphicon glyphicon-phone ">&nbsp;</span>
-                            <a href="#" class="red_hover" >Asus</a>
-                        </li>
-                        <li class="list-group-item ds ">
-                            <span class="glyphicon glyphicon-phone ">&nbsp;</span>
-                            <a href="#" class="red_hover" >Sony</a>
-                        </li>
-                        <li class="list-group-item ds ">
-                            <span class="glyphicon glyphicon-phone ">&nbsp;</span>
-                            <a href="#" class="red_hover" >Acer</a>
-                        </li>
-                        <li class="list-group-item ds ">
-                            <span class="glyphicon glyphicon-phone ">&nbsp;</span>
-                            <a href="#" class="red_hover" >Khác</a>
-                        </li>
+                        @endforeach
 
                     </ul>
                 </div>
@@ -92,29 +34,29 @@
                     <div class="col-md-6 col-s  m-6">
                         <div class="row">
                             <div class="col-md-6 col-xs-6 col-sm-6">
-                                <img class="img-responsive img-thumbnail" src="images/{{$product->image}}" width="100%">
+                                <a href="{{route('chitietsanpham',$product->id)}}">
+                                    <img class="img-responsive img-thumbnail" src="images/{{$product->image}}" width="100%">
+                                </a>
+
                             </div>
                             <div class="col-md-6 text-center col-xs-6 col-sm-6">
                                 <div class="height">
-                                    <span ><strong><a class="red_hover" href="#">{{$product->name}}</a></strong></span>
+                                    <span ><strong><a class="red_hover" href="{{route('chitietsanpham',$product->id)}}">{{$product->name}}</a></strong></span>
                                 </div>
                                 <div >
                                     <p><span> Giá: &nbsp; </span><span class="gia">{{$product->price}}</span></p>
                                 </div>
-                                <div> <a href="#" class="select"> Mua hàng</a></div>
+                                <div class="caption">
+                                    <a href="{{route('themgiohang',$product->id)}}"><span class="glyphicon glyphicon-shopping-cart" style="color:red; padding-right: 10px"></span></a>
+                                    <a href="{{route('themgiohang',$product->id)}}" class="select"> Mua hàng</a>
+                                </div>
 
                             </div>
                         </div>
                     </div>
 
                     @endforeach
-
-
-
                 </div>
-
-
-
             </div>
             <div class="col-md-3 visible-lg visible-md">
                 <div class="row">
@@ -132,10 +74,16 @@
             <div class="row khungnho">
                 @foreach($newProducts as $newProduct)
                 <div class="col-md-2 col-xs-6 col-sm-3">
-                    <img class="img-responsive thumbnail" src="images/{{$newProduct ->image}}" width="100%">
-                    <div class="caption text-center">
-                        <span ><strong><a class="red_hover" href="#">{{$newProduct->name}}</a></strong></span>
+                    <a href="{{route('chitietsanpham',$newProduct->id)}}">
+                        <img class="img-responsive img-thumbnail" src="images/{{$newProduct->image}}" width="100%">
+                    </a>
+                    <div class="caption text-center height">
+                        <span ><strong><a class="red_hover" href="{{route('chitietsanpham',$newProduct->id)}}">{{$newProduct->name}}</a></strong></span>
+                    </div>
+                    <div class="height text-center">
                         <p><span> Giá: &nbsp; </span><span class="gia">{{$newProduct->price}} đồng</span></p>
+                        <a href="{{route('themgiohang',$newProduct->id)}}"><span class="glyphicon glyphicon-shopping-cart" style="color:red; padding-right: 10px"></span></a>
+                        <a href="{{route('themgiohang',$newProduct->id)}}" class="select"> Mua hàng</a>
                     </div>
                 </div>
                 @endforeach
@@ -144,18 +92,25 @@
         </div>
         <hr>
         <div class="row khung">
-            @foreach($loaisp as $type)
+            @foreach($loaisps->take(3) as $type)
             <div class="col-md-4 col-sm-4 col-xs-12">
                 <h3 class="text-center">{{$type->name}}</h3><hr class="gach_duoi">
-                @foreach($type->products as $product)
+                @foreach($type->products->take(3) as $product)
                 <div class="row">
                     <div class="col-md-4 col-xs-6 text-center">
-                        <img src="images/{{$product->image}}" class="img-responsive " width="100%">
+                        <a href="{{route('chitietsanpham',$product->id)}}">
+                            <img class="img-responsive img-thumbnail" src="images/{{$product->image}}" width="100%">
+                        </a>
                     </div>
                     <div class="col-md-6 text-center col-xs-6">
-                        <span ><strong><a class="red_hover" href="#">{{$product->name}}</a></strong></span>
+                        <div class="height">
+                        <span ><strong><a class="red_hover" href="{{route('chitietsanpham',$product->id)}}">{{$product->name}}</a></strong></span>
+                        </div >
                         <p><span> Giá: &nbsp; </span><span class="gia">{{$product->price}} đ</span></p>
-                        <a href="#" class="select"> Mua hàng</a>
+                        <div class="caption">
+                            <a href="{{route('themgiohang',$newProduct->id)}}"><span class="glyphicon glyphicon-shopping-cart" style="color:red; padding-right: 10px"></span></a>
+                            <a href="{{route('themgiohang',$newProduct->id)}}" class="select"> Mua hàng</a>
+                        </div>
                     </div>
                 </div>
                 @endforeach

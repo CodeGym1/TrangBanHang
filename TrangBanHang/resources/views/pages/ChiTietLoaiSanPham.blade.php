@@ -10,57 +10,39 @@
                                 <span class="glyphicon glyphicon-list">&nbsp;</span>
                                 <span class="text-center">Danh mục sản phẩm</span>
                             </li>
-                            <li class="list-group-item ds ">
-                                <span class="glyphicon glyphicon-phone ">&nbsp;</span>
-                                <a href="#" class="red_hover" >Iphone </a>
-                            </li>
-                            <li class="list-group-item ds ">
-                                <span class="glyphicon glyphicon-phone ">&nbsp;</span>
-                                <a href="#" class="red_hover" >Samsung </a>
-                            </li>
-                            <li class="list-group-item ds ">
-                                <span class="glyphicon glyphicon-phone ">&nbsp;</span>
-                                <a href="#" class="red_hover" >Oppo</a>
-                            </li>
-                            <li class="list-group-item ds ">
-                                <span class="glyphicon glyphicon-phone ">&nbsp;</span>
-                                <a href="#" class="red_hover" >Asus</a>
-                            </li>
-                            <li class="list-group-item ds ">
-                                <span class="glyphicon glyphicon-phone ">&nbsp;</span>
-                                <a href="#" class="red_hover" >Sony</a>
-                            </li>
-                            <li class="list-group-item ds ">
-                                <span class="glyphicon glyphicon-phone ">&nbsp;</span>
-                                <a href="#" class="red_hover" >Acer</a>
-                            </li>
-                            <li class="list-group-item ds ">
-                                <span class="glyphicon glyphicon-phone ">&nbsp;</span>
-                                <a href="#" class="red_hover" >Khác</a>
-                            </li>
+                            @foreach($loai_sp as $loai)
+                                <li class="list-group-item ds ">
+                                    <span class="glyphicon glyphicon-phone ">&nbsp;</span>
+                                    <a href="{{route('chitiet_loaisp',$loai->id )}}" class="red_hover" >{{$loai->name}}</a>
+                                </li>
+                            @endforeach
 
                         </ul>
                     </div>
                 </div>
                 <div class="col-md-8 col-md-offset-1 content1-right">
                     <div class="row">
-                        <div class="col-md-6">
-                            <h3>Iphone</h3><hr class="gach_full">
+                        <div class="col-md-4">
+                            @foreach($loaisp as $loai)
+                               <h3>{{$loai->name}}</h3><hr class="gach_full">
+                            @endforeach
                         </div>
                     </div>
                     <div class="row">
-                        @foreach($products as $product)
+                        @foreach($sp_theoloai as $sp)
                             <div class="col-md-6 col-xs-6  col-sm-6">
                                 <div class="row">
                                     <div class="col-md-6 col-xs-6 col-sm-6">
-                                        <img class="img-responsive img-thumbnail" src="images/{{$product->image}}" width="100%">
+                                        <a href="{{route('chitietsanpham',$sp->id)}}">
+                                        <img class="img-responsive img-thumbnail" src="/images/{{$sp->image}}" width="100%">
+                                        </a>
                                     </div>
                                     <div class="col-md-6 text-center col-xs-6 col-sm-6">
                                         <div class="height">
-                                            <span ><strong><a class="red_hover" href="#">{{$product->name}}</a></strong></span>
+                                            <span ><strong><a class="red_hover" href="{{route('chitietsanpham',$sp->id)}}">{{$sp->name}}</a></strong></span>
                                         </div>
                                         <div >
-                                            <p><span> Giá: &nbsp; </span><span class="gia">{{$product->price}}</span></p>
+                                            <p><span> Giá: &nbsp; </span><span class="gia">{{$sp->price}}</span></p>
                                         </div>
                                         <div> <a href="#" class="select"> Mua hàng</a></div>
 
