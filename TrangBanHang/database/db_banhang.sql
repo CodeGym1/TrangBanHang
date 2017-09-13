@@ -256,7 +256,7 @@ INSERT INTO `slides` (`id`, `link`, `image`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `type_products`
+-- Table structure for table `type_product`
 --
 
 CREATE TABLE IF NOT EXISTS `type_products` (
@@ -267,7 +267,7 @@ CREATE TABLE IF NOT EXISTS `type_products` (
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `type_products`
+-- Dumping data for table `type_product`
 --
 
 INSERT INTO `type_products` (`id`, `name`, `created_at`, `updated_at`) VALUES
@@ -354,7 +354,7 @@ ALTER TABLE `slides`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `type_products`
+-- Indexes for table `type_product`
 --
 ALTER TABLE `type_products`
   ADD PRIMARY KEY (`id`);
@@ -401,7 +401,7 @@ ALTER TABLE `products`
 ALTER TABLE `slides`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 --
--- AUTO_INCREMENT for table `type_products`
+-- AUTO_INCREMENT for table `type_product`
 --
 ALTER TABLE `type_products`
   MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8;
