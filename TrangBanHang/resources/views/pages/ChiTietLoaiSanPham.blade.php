@@ -44,7 +44,9 @@
                                         <div >
                                             <p><span> Giá: &nbsp; </span><span class="gia">{{$sp->price}}</span></p>
                                         </div>
-                                        <div> <a href="#" class="select"> Mua hàng</a></div>
+                                        <a href="{{route('themgiohang',$sp->id)}}"><span class="glyphicon glyphicon-shopping-cart" style="color:red; padding-right: 10px"></span></a>
+                                        <a href="{{route('themgiohang',$sp->id)}}" class="select"> Mua hàng</a>
+
 
                                     </div>
                                 </div>

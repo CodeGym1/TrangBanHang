@@ -55,7 +55,7 @@
                                     </span>
                                 </span>
                                 <div class="text-right">
-                                    <a href="{{route('xoagiohang',$product['item']['id'])}}"><span class="glyphicon glyphicon-folder-close" > xóa</span></a>
+                                    <a href="{{route('xoagiohang',$product['item']['id'])}}"><span class="btn btn-danger" > xóa</span></a>
                                 </div>
 
                             </div>
@@ -64,16 +64,20 @@
                             @endforeach
                         @endif
                         <li>
-                        <div>Tổng tiền: <span class="cart-total-value">{{Session::has('cart')? Session::get('cart')->totalPrice: 0}} đồng</span></div>
+                        <div>Tổng tiền: <span class="btn btn-info">{{Session::has('cart')? Session::get('cart')->totalPrice: 0}} đồng</span></div>
                         </li>
-                        <li><a href="{{route('register')}}" class="text-center"><button class="bg-success">Tiến hành đặt hàng</button></a></li>
+                        <li><a href="{{route('dathang')}}" class="text-center"><span class="btn btn-success">Tiến hành đặt hàng</span></a></li>
                     </ul>
                 </li>
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle " data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span> Tài khoản</a>
+                    @if(Auth::check())
+                    <a href="#" class="dropdown-toggle " data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span>Chào bạn: {{Auth::user()->full_name}}</a>
                     <ul class="dropdown-menu">
-                        <li><a href="{{route('login')}}">Đăng Nhập</a></li>
-                        <li><a href="{{route('register')}}">Đăng ký</a></li>
+                            <li><a href="{{route('logout')}}">Đăng xuất</a></li>
+                        @else
+                            <li><a href="{{route('signin')}}">Đăng kí</a></li>
+                            <li><a href="{{route('login')}}">Đăng nhập</a></li>
+                        @endif
                     </ul>
                 </li>
             </ul>

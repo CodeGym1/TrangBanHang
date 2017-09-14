@@ -89,3 +89,41 @@ Route::get('product', 'ProductControler@getList');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+// dathang
+
+Route::get('dat-hang',[
+    'as'=>'dathang',
+    'uses'=>'MyController@getCheckout'
+]);
+
+Route::post('dat-hang',[
+    'as'=>'dathang',
+    'uses'=>'MyController@postCheckout'
+]);
+
+//login
+
+Route::get('dang-nhap',[
+    'as'=>'login',
+    'uses'=>'MyController@getLogin'
+]);
+Route::post('dang-nhap',[
+    'as'=>'login',
+    'uses'=>'MyController@postLogin'
+]);
+
+Route::get('dang-ki',[
+    'as'=>'signin',
+    'uses'=>'MyController@getSignin'
+]);
+
+
+Route::post('dang-ki',[
+    'as'=>'signin',
+    'uses'=>'MyController@postSignin'
+]);
+Route::get('dang-xuat',[
+    'as'=>'logout',
+    'uses'=>'MyController@postLogout'
+]);
