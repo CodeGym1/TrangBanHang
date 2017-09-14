@@ -22,7 +22,7 @@ class AppServiceProvider extends ServiceProvider
             $view->with('loaisp', $loai_sp);
         });
 
-        view()->composer(['layout.menu', 'page.dat_hang'], function ($view) {
+        view()->composer(['layout.menu', 'pages.DatHang'], function ($view) {
             if (Session('cart')) {
                 $oldCart = Session::get('cart');
                 $cart = new Cart($oldCart);

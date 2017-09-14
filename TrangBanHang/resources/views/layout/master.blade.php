@@ -21,7 +21,6 @@
 <body>
 @include('layout.header')
 @include('layout.menu')
-@include('layout.slides')
 @yield('Noidung')
 
 @include('layout.footer')

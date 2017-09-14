@@ -38,7 +38,7 @@
                     <hr>
                     <div id="number"><p><b>Số lượng </b></p></div>
                     <div id="numberform"><input type="number" value="1" id="soluong"></div>
-                    <div id="buttonbuy"><button type="button" class="btn btn-success" id="bought">Mua ngay</button></div>
+                    <div id="buttonbuy"><button type="button" class="btn btn-success" id="bought"><a href="{{route('dathang')}}">Mua ngay</a></button></div>
                     <div id="buttoncredit"><button type="button" class="btn btn-warning" id="credit">Trả góp</button></div>
                 </div>
                 <div id="bill">
