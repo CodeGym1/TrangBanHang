@@ -71,12 +71,12 @@
                 </li>
                 <li class="dropdown">
                     @if(Auth::check())
-                    <a href="#" class="dropdown-toggle " data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span>Chào bạn: {{Auth::user()->full_name}}</a>
+                    <a href="#" class="dropdown-toggle " data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span> {{Auth::user()->full_name}}</a>
+                     <li><a href="{{route('logout')}}">Đăng xuất</a></li>
                     <ul class="dropdown-menu">
-                            <li><a href="{{route('logout')}}">Đăng xuất</a></li>
                         @else
                             <li><a href="{{route('signin')}}">Đăng kí</a></li>
-                            <li><a href="{{route('login')}}">Đăng nhập</a></li>
+                            <li><a href="{{ route('login') }}">Đăng nhập</a></li>
                         @endif
                     </ul>
                 </li>

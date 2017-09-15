@@ -2,14 +2,14 @@
 
 //* phần quản trị
 //phần type
-Route::get('/admin/index','Type_productController@index')->name('show.index');
-Route::get('/admin/type_product/list','Type_productController@showList')->name('show.list.type');
-Route::get('/admin/type_product/add','Type_productController@showAddForm')->name('show.add.type');
-Route::post('/admin/type_product/add','Type_productController@add')->name('add.type');
-Route::get('/admin/type_product/edit/{id}','Type_productController@showEditForm')->name('show.edit.type');
-Route::post('/admin/type_product/edit/{id}','Type_productController@edit')->name('edit.type');
-Route::get('/admin/type_product/delete/{id}','Type_productController@showDeleteForm')->name('show.delete.type');
-Route::post('/admin/type_product/delete/{id}','Type_productController@delete');
+Route::get('/admin/index','CategoryController@index')->name('show.index');
+Route::get('/admin/category/list','CategoryController@showList')->name('show.list.type');
+Route::get('/admin/category/add','CategoryController@showAddForm')->name('show.add.type');
+Route::post('/admin/category/add','CategoryController@add')->name('add.type');
+Route::get('/admin/category/edit/{id}','CategoryController@showEditForm')->name('show.edit.type');
+Route::post('/admin/category/edit/{id}','CategoryController@edit')->name('edit.type');
+Route::get('/admin/category/delete/{id}','CategoryController@showDeleteForm')->name('show.delete.type');
+Route::post('/admin/category/delete/{id}','CategoryController@delete');
 
 // phần product
 Route::get('/admin/product/list','ProductController@showList')->name('show.list.product');
@@ -45,29 +45,29 @@ Route::get('register',function (){
 })->name('register');
 
 
-Route::get('index',[
+Route::get('/',[
     'as'=>'trang-chu',
-    'uses'=>'MyController@getIndex'
+    'uses'=>'HomeController@getIndex'
 ]);
 
 Route::get('chitiet_loaisp/{type}',[
     'as'=>'chitiet_loaisp',
-    'uses'=>'MyController@listLoaiSp'
+    'uses'=>'CategoryController@showCategory'
 ]);
 
 Route::get('chi-tiet-san-pham/{id}',[
    'as'=>'chitietsanpham',
-   'uses'=>'MyController@getChiTiet'
+   'uses'=>'ProductController@getChiTiet'
 ]);
 
 Route::get('add-to-cart/{id}',[
     'as'=>'themgiohang',
-    'uses'=>'MyController@addtoCart'
+    'uses'=>'HomeController@addtoCart'
 ]);
 
 Route::get('del-cart/{id}',[
     'as'=>'xoagiohang',
-    'uses'=>'MyController@delItemCart'
+    'uses'=>'HomeController@delItemCart'
 ]);
 
 Route::get('product', 'ProductControler@getList');
@@ -81,36 +81,44 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('dat-hang',[
     'as'=>'dathang',
-    'uses'=>'MyController@getCheckout'
+    'uses'=>'HomeController@getCheckout'
 ]);
 
 Route::post('dat-hang',[
     'as'=>'dathang',
-    'uses'=>'MyController@postCheckout'
+    'uses'=>'HomeController@postCheckout'
 ]);
 
 //login
 
 Route::get('dang-nhap',[
     'as'=>'login',
-    'uses'=>'MyController@getLogin'
+    'uses'=>'HomeController@getLogin'
 ]);
 Route::post('dang-nhap',[
     'as'=>'login',
-    'uses'=>'MyController@postLogin'
+    'uses'=>'HomeController@postLogin'
 ]);
 
 Route::get('dang-ki',[
     'as'=>'signin',
-    'uses'=>'MyController@getSignin'
+    'uses'=>'HomeController@getSignin'
 ]);
 
 
 Route::post('dang-ki',[
     'as'=>'signin',
-    'uses'=>'MyController@postSignin'
+    'uses'=>'HomeController@postSignin'
 ]);
 Route::get('dang-xuat',[
     'as'=>'logout',
-    'uses'=>'MyController@postLogout'
+    'uses'=>'HomeController@postLogout'
 ]);
+
+Route::get('search',[
+   'as'=>'search',
+    'uses'=>'HomeController@getSearch'
+]);
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

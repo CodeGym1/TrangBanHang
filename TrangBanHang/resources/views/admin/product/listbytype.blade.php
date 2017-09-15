@@ -9,16 +9,16 @@
                         <th>Thứ tự</th>
                         <th>Tên loại</th>
                     </tr>
-                    @foreach($types as $index=>$type )
+                    @foreach($categories as $index=>$category )
                         <tr>
                             <td class="text-center">{{++$index}}</td>
-                            <td><a href="{{route('show.list.product.by.type',$type->id)}}">{{$type->name}}</a> </td>
+                            <td><a href="{{route('show.list.product.by.type',$category->id)}}">{{$category->name}}</a> </td>
                         </tr>
                     @endforeach
                 </table>
             </div>
             <div class="col-md-9">
-                <h4 class="h4">Sản phẩm của {{$type_by_id->name}}</h4>
+                <h4 class="h4">Sản phẩm của {{$cate_by_id->name}}</h4>
                 <table class="table table-bordered table-striped">
                     <tr>
                         <th class="text-center">Thứ tự</th>
@@ -35,14 +35,14 @@
                             <td class="text-center">{{++$key}}</td>
                             <td>{{$product->name}}</td>
                             <td>{{$product->price}}</td>
-                            <td class="text-center"><img src="/storage/images/{{$product->image}}" style="width: 50px; height: 80px"></td>
+                            <td class="text-center"><img src="/images/{{$product->image}}" style="width: 50px; height: 80px"></td>
                             <td>{{$product->description}}</td>
                             <td class="text-center">{{$product->new}}</td>
                             <td>
-                                <a href="{{route('show.edit.product',$product->id)}}"><i class="glyphicon glyphicon-edit"></i>Sửa</a>
+                                <a href="{{route('show.edit.product',$product->id)}}"><i class="glyphicon glyphicon-edit"></i> Sửa</a>
                             </td>
                             <td>
-                                <a href="{{route('show.delete.product',$product->id)}}"><i class="glyphicon glyphicon-trash"></i>Xóa</a>
+                                <a href="{{route('show.delete.product',$product->id)}}"><i class="glyphicon glyphicon-trash"></i> Xóa</a>
                             </td>
                         </tr>
                     @endforeach

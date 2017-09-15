@@ -3,7 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use App\ProductType;
+use App\Category;
 use Session;
 use App\Cart;
 use App\Slide;
@@ -18,8 +18,8 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         view()->composer('layout.menu', function ($view) {
-            $loai_sp = ProductType::all();
-            $view->with('loaisp', $loai_sp);
+            $categories = Category::all();
+            $view->with('loaisp', $categories);
         });
 
         view()->composer(['layout.menu', 'pages.DatHang'], function ($view) {
@@ -32,10 +32,10 @@ class AppServiceProvider extends ServiceProvider
 
         });
 
-        view()->composer('layout.slides', function ($view) {
-            $slide = Slide::all();
-            $view->with('slide', $slide);
-        });
+//        view()->composer('layout.slides', function ($view) {
+//            $slide = Slide::all();
+//            $view->with('slide', $slide);
+//        });
     }
 
     /**

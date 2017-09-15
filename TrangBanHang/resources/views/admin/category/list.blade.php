@@ -10,15 +10,15 @@
                        <th class="text-center">Sửa</th>
                        <th class="text-center">Xóa</th>
                    </tr>
-                   @foreach($typies as $type )
+                   @foreach($categories as $category )
                        <tr>
-                           <td class="text-center">{{$type->id}}</td>
-                           <td>{{$type->name}}</td>
+                           <td class="text-center">{{$category->id}}</td>
+                           <td>{{$category->name}}</td>
                            <td class="text-center">
-                               <a  href="{{route('show.edit.type',$type->id)}}"><i class="glyphicon glyphicon-edit"></i>Sửa</a>
+                               <a  href="{{route('show.edit.type',$category->id)}}"><i class="glyphicon glyphicon-edit"></i> Sửa</a>
                            </td>
                            <td class="text-center">
-                               <a href="{{route('show.delete.type',$type->id)}}"><i class="glyphicon glyphicon-trash"></i>xóa</a>
+                               <a href="{{route('show.delete.type',$category->id)}}"><i class="glyphicon glyphicon-trash"></i> xóa</a>
                            </td>
                        </tr>
                    @endforeach

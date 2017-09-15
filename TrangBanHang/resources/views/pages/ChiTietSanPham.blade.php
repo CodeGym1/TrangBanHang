@@ -7,8 +7,8 @@
             <div>
                 <ul class="breadcrumb">
                     <li>Trang chủ</li>
-                    <li>{{$loaisp->name}}</li>
-                    <li class="active">Sản phẩm {{$sanpham->name}}</li>
+                    <li>{{$category->name}}</li>
+                    <li class="active">Sản phẩm {{$products->name}}</li>
                 </ul>
             </div>
             <div class="col-md-5 col-xs-12" id="imageproduct">
@@ -19,7 +19,7 @@
                 </ul>
             </div>
             <div class="col-md-7" id="product">
-                <p id="productname"><b>Sản phẩm {{$sanpham->name}}B</b></p>
+                <p id="productname"><b>Sản phẩm {{$products->name}}B</b></p>
                 <hr>
                 <pre>Giá bán: <p id="price">18.990.000 VND</p></pre>
                 <p>Thương hiệu: Apple</p>
@@ -155,6 +155,7 @@
                     </div>
                 </div>
             </div>
+            <div class="fb-comments" data-href="http://webbanhang.dev:8088" data-width="100%" data-numposts="5"></div>
         </div>
     </div>
 </div>
