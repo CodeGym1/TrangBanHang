@@ -11,8 +11,6 @@ Route::post('/admin/type_product/edit/{id}','Type_productController@edit')->name
 Route::get('/admin/type_product/delete/{id}','Type_productController@showDeleteForm')->name('show.delete.type');
 Route::post('/admin/type_product/delete/{id}','Type_productController@delete');
 
-
-
 // phần product
 Route::get('/admin/product/list','ProductController@showList')->name('show.list.product');
 Route::get('/admin/product/add','ProductController@showAddForm')->name('show.add.product');
@@ -27,22 +25,11 @@ Route::get('/admin/product/list/{id}','ProductController@showListProductByType')
 Route::get('/admin/user/list','UserController@showList')->name('show.list.user');
 Route::get('/admin/user/delete/{id}','UserController@showFormDelete')->name('show.delete');
 Route::post('/admin/user/delete/{id}','UserController@delete');
-//* phần quản trị
 
-// phần product
-Route::get('/admin/product/list','ProductController@showList')->name('show.list.product');
-Route::get('/admin/product/add','ProductController@showAddForm')->name('show.add.product');
-Route::post('/admin/product/add','ProductController@add');
-Route::get('/admin/product/edit/{id}','ProductController@showEditForm')->name('show.edit.product');
-Route::post('/admin/product/edit/{id}','ProductController@edit');
-Route::get('/admin/product/delete/{id}','ProductController@showDeleteForm')->name('show.delete.product');
-Route::post('/admin/product/delete/{id}','ProductController@delete');
-Route::get('/admin/product/list/{id}','ProductController@showListProductByType')->name('show.list.product.by.type');
-
-// phần người dùng
-Route::get('/admin/user/list','UserController@showList')->name('show.list.user');
-Route::get('/admin/user/delete/{id}','UserController@showFormDelete')->name('show.delete');
-Route::post('/admin/user/delete/{id}','UserController@delete');
+// phần login
+Route::get('/admin/login','AdminController@showLoginForm')->name('show.login.form');
+Route::post('/admin/login','AdminController@login')->name('login.admin');
+Route::get('/admin/logout','AdminController@logout')->name('logout.admin');
 //* phần quản trị
 
 

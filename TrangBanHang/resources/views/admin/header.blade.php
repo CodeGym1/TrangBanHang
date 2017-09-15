@@ -54,9 +54,9 @@
             {{--</form>--}}
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-user"></i><span class="caret"></span></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Xin chào Admin <i class="glyphicon glyphicon-user"></i><span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="#">Logout</a></li>
+                        <li><a href="{{route('show.login.form')}}">Logout</a></li>
                         <li class="divider"></li>
                         <li><a href="#">Đăng ký</a></li>
                     </ul>
