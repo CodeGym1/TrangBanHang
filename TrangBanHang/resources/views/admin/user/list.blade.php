@@ -23,7 +23,7 @@
                             <td>{{$user->password}}</td>
                             <td>{{$user->phone}}</td>
                             <td>{{$user->address}}</td>
-                            <td><a href="{{route('show.delete',$user->id)}}"><i class="glyphicon glyphicon-trash"></i>Xóa</a> </td>
+                            <td><a href="{{route('show.delete',$user->id)}}"><i class="glyphicon glyphicon-trash"></i> Xóa</a> </td>
                         </tr>
                     @endforeach
 

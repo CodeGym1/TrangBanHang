@@ -8,8 +8,8 @@
                    <div class="form-group">
                        <label>Loại sản phẩm</label>
                        <select name="type">
-                           @foreach($types as $type)
-                               <option value="{{$type->id}}">{{$type->name}}</option>
+                           @foreach($categories as $category)
+                               <option value="{{$category->id}}">{{$category->name}}</option>
                            @endforeach
                        </select>
                    </div>

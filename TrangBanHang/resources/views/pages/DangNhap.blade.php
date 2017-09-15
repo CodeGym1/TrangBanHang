@@ -29,6 +29,9 @@
                         </div>
                         <div class="form-group text-center">
                             <button type="submit" class="btn btn-primary">Login</button>
+                            <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+                            </fb:login-button>
+
                         </div>
                     </div>
                     <div class="col-sm-3"></div>

@@ -10,10 +10,10 @@
                         <th>Thứ tự</th>
                         <th>Tên loại</th>
                     </tr>
-                    @foreach($types as $index=>$type )
+                    @foreach($categories as $index=>$category )
                         <tr>
                             <td class="text-center">{{$index + 1}}</td>
-                            <td><a href="{{route('show.list.product.by.type',$type->id)}}">{{$type->name}}</a> </td>
+                            <td><a href="{{route('show.list.product.by.type',$category->id)}}">{{$category->name}}</a> </td>
                         </tr>
                     @endforeach
                 </table>
@@ -36,11 +36,11 @@
                     @foreach($products as $index=>$product)
                         <tr>
                             <td class="text-center">{{++$index}}</td>
-                            <td class="text-center">{{$product->product_type->name}}</td>
+                            <td class="text-center">{{$product->category->name}}</td>
                             <td class="text-center">{{$product->id}}</td>
                             <td>{{$product->name}}</td>
                             <td>{{$product->price}}</td>
-                            <td class="text-center"><img src="/storage/images/{{$product->image}}" style="width: 50px; height: 80px"></td>
+                            <td class="text-center"><img src="/images/{{$product->image}}" style="width: 50px; height: 80px"></td>
                             <td>{{$product->description}}</td>
                             <td class="text-center">{{$product->new}}</td>
                             <td>

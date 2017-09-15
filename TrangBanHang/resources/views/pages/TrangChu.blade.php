@@ -16,7 +16,7 @@
                     <div class="item active">
                         <a href="#"><img src="/images/home-slider-1.jpg" alt="Image" width="100%"></a>
                     </div>
-                    @foreach($slide as $sl)
+                    @foreach($slides as $sl)
                         <div class="item ">
 
                             <a href="#"><img src="/images/{{$sl->image}}" alt="Image" width="100%"></a>
@@ -48,7 +48,7 @@
                             <span class="glyphicon glyphicon-list">&nbsp;</span>
                             <span class="text-center">Danh mục sản phẩm</span>
                         </li>
-                        @foreach($loaisp as $loai)
+                        @foreach($categories as $loai)
                         <li class="list-group-item ds ">
                             <span class="glyphicon glyphicon-phone ">&nbsp;</span>
                             <a href="{{route('chitiet_loaisp',$loai->id )}}" class="red_hover" >{{$loai->name}}</a>
@@ -65,6 +65,7 @@
                         <h3>Sản phẩm bán chạy</h3><hr class="gach_full">
                     </div>
                 </div>
+
                 <div class="row">
                     @foreach($products as $product)
                     <div class="col-md-6 col-s  m-6">
@@ -128,7 +129,7 @@
         </div>
         <hr>
         <div class="row khung">
-            @foreach($loaisps->take(3) as $type)
+            @foreach($categories->take(3) as $type)
             <div class="col-md-4 col-sm-4 col-xs-12">
                 <h3 class="text-center">{{$type->name}}</h3><hr class="gach_duoi">
                 @foreach($type->products->take(3) as $product)

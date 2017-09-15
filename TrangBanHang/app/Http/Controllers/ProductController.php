@@ -3,34 +3,34 @@
 namespace App\Http\Controllers;
 
 use App\Product;
-use App\ProductType;
+use App\Category;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
     public function showList(){
-        $types = ProductType::all();
+        $categories = Category::all();
         //liên kết 2 bảng bằng phương thức product_type trong model Product
-        $products = Product::with('product_type')->get();
-        return view('admin.product.list',["products" => $products, "types" => $types]);
+        $products = Product::with('Category')->get();
+        return view('admin.product.list',["products" => $products, "categories" => $categories]);
     }
 
     public function showAddForm(){
-        $types = ProductType::all();
-        return view('admin.product.add',["types" => $types]);
+        $categories = Category::all();
+        return view('admin.product.add',["categories" => $categories]);
     }
 
     public function add(Request $request){
         $product = new Product();
         $product->name = $request->input('name');;
-        $product->id_type = $request->input('type');
+        $product->category_id = $request->input('type');
         $product->price = $request->input('price');
         $product->new = $request->input('new');
         $product->description = $request->input('description');
         $product->unit = $request->input('unit');
         $image=$request->file("image");
         if ($request->hasFile('image')){
-            $image->move('../storage/app/public/images/',$image->getClientOriginalName());
+            $image->move('/images/',$image->getClientOriginalName());
             $product->image=$image->getClientOriginalName();
         }else{
             return view('error.error_image');
@@ -42,11 +42,11 @@ class ProductController extends Controller
         $product = Product::find($id);
         if($product){
             $product->name = $request->input('nameproduct');
-            $product->id_type = $request->input('type');
+            $product->category_id = $request->input('type');
             $product->price = $request->input('price');
             if($request->hasFile('image')){
                 $image = $request->file("image");
-                $image->move('../storage/app/public/images/',$image->getClientOriginalName());
+                $image->move('/images/',$image->getClientOriginalName());
                 $product->image=$image->getClientOriginalName();
             }
             $product->new = $request->input('new');
@@ -61,9 +61,9 @@ class ProductController extends Controller
 
     public function showEditForm(Request $request,$id){
         $product = Product::find($id);
-        $types = ProductType::all();
+        $categories = Category::all();
         if($product){
-            return view('admin.product.edit',["product" => $product,"types" => $types]);
+            return view('admin.product.edit',["product" => $product,"categories" => $categories]);
         }else{
             return view('error.404', ["message" => "Product not found"]);
         }
@@ -82,11 +82,16 @@ class ProductController extends Controller
     }
 
     public function showListProductByType(Request $request,$id){
-            $types = ProductType::all();
-            $type_by_id = ProductType::find($id);
-            $product = new Product();
-            $products = Product::where('id_type', $type_by_id->id)->get();
-        return view('admin.product.listbytype',["products" => $products,"types" => $types,"type_by_id" => $type_by_id]);
+            $categories = Category::all();
+            $cate_by_id = Category::find($id);
+            $products = Product::where('category_id', $cate_by_id->id)->get();
+        return view('admin.product.listbytype',["products" => $products,"categories" => $categories,"cate_by_id" => $cate_by_id]);
+    }
+
+    public function getChiTiet(Request $req){
+        $products = Product::where('id',$req->id)->first();
+        $category = Category::where('id',$req->id)->first();
+        return view('pages.ChiTietSanPham',compact('products','category'));
     }
 
 }

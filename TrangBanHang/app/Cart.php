@@ -8,29 +8,6 @@ class Cart
     public $totalQty = 0;
     public $totalPrice = 0;
 
-
-//	public function add($item){
-//        if(array_key_exists($item->id, $this->items)){
-//            $this->items[$item->id]['qty']++;
-//        }else {
-//            $this->items[$item->id] = ['item'=>$item, 'qty'=> 1];
-//        }
-//	}
-
-//	public function getTotalQuantity(){
-//	    return count($this->items);
-//    }
-//
-//    public function getTotalCost(){
-//	    $cost = 0;
-//	    foreach ($this->items as $id => $item){
-//	        $cost += $this->items[$id]['qty'] * $item['item']->price;
-//        }
-//        return $cost;
-//    }
-
-
-
     public function __construct($oldCart)
     {
         if ($oldCart) {
@@ -56,8 +33,6 @@ class Cart
 
     }
 
-
-    //xóa nhiều
     public function removeItem($id)
     {
         $this->totalQty -= $this->items[$id]['qty'];
