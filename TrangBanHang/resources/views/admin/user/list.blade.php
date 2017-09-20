@@ -9,7 +9,6 @@
                         <th>id</th>
                         <th>Name</th>
                         <th>Email</th>
-                        <th>Password</th>
                         <th>Phone</th>
                         <th>Adress</th>
                         <th>Xử lý</th>
@@ -20,7 +19,6 @@
                             <td>{{$user->id}}</td>
                             <td>{{$user->full_name}}</td>
                             <td>{{$user->email}}</td>
-                            <td>{{$user->password}}</td>
                             <td>{{$user->phone}}</td>
                             <td>{{$user->address}}</td>
                             <td><a href="{{route('show.delete',$user->id)}}"><i class="glyphicon glyphicon-trash"></i> Xóa</a> </td>
