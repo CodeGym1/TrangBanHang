@@ -44,24 +44,28 @@
                         <li><a href="{{route('show.add.product')}}">Thêm sản phẩm</a></li>
                     </ul>
                 </li>
-                <li><a href="{{route('show.list.user')}}">Tài khoản</a></li>
-            </ul>
-            {{--<form class="navbar-form navbar-left" role="search">--}}
-                {{--<div class="form-group">--}}
-                    {{--<input type="text" class="form-control" placeholder="Search">--}}
-                {{--</div>--}}
-                {{--<button type="submit" class="btn btn-default">Submit</button>--}}
-            {{--</form>--}}
-            <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Xin chào Admin <i class="glyphicon glyphicon-user"></i><span class="caret"></span></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Khách hàng<span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="{{route('show.login.form')}}">Logout</a></li>
+                        <li><a href="{{route('show.list.customer')}}">Danh sách</a></li>
                         <li class="divider"></li>
-                        <li><a href="#">Đăng ký</a></li>
+                        <li><a href="{{route('show.list.bill')}}">Đơn Hàng</a></li>
                     </ul>
                 </li>
+                <li><a href="{{route('show.list.user')}}">Tài khoản</a></li>
             </ul>
-        </div><!-- /.navbar-collapse -->
-    </div><!-- /.container-fluid -->
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{Auth::user()->full_name}} &nbsp;<span class="glyphicon glyphicon-user"></span><span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="{{route('logout.admin')}}">Logout</a></li>
+                        <li class="divider"></li>
+                        <li><a href="{{route('edit.password',Auth::user()->id)}}">Đổi mật khẩu</a></li>
+
+                    </ul>
+
+                </li>
+            </ul>
+        </div>
+    </div>
 </nav>

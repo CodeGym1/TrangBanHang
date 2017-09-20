@@ -17,7 +17,9 @@ class UserController extends Controller
     }
     public function delete(Request $request,$id){
         $user = User::find($id);
+        if($user->role ==0 )
         $user->delete();
+        else echo"day la admin k dc xao";
         return redirect(route('show.list.user'));
     }
 }

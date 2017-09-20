@@ -88,7 +88,7 @@ class HomeController extends Controller
     }
 
     public function getLogin(){
-        return view('pages.DangNhap');
+        return view('auth.login');
     }
 
     public function getSignin(){
@@ -149,6 +149,11 @@ class HomeController extends Controller
     public function postLogout(){
         Auth::logout();
         return redirect()->route('trang-chu');
+    }
+
+    public function postLogout_admin(){
+        Auth::logout();
+        return redirect()->route('login');
     }
 
     public function getSearch(Request $req){

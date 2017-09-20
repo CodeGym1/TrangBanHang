@@ -24,14 +24,14 @@ class AdminRequest extends FormRequest
     public function rules()
     {
         return [
-            'user' => 'required',
+            'email' => 'required',
             'password' => 'required',
         ];
     }
     public  function messages()
     {
         return [
-            'user.required' => 'Đang trống user',
+            'email.required' => 'Đang trống user',
             'password.required' => 'Đang trống password',
         ];
     }
