@@ -17,9 +17,9 @@ class CategoryController extends Controller
     }
     public function showCategory($id){
         $products = Product::where('category_id',$id)->get();
-        $category = Category::find($id);
+        $cate = Category::where('id',$id)->first();
         $categories = Category::with("products")->get();
-        return view('pages.ChiTietLoaiSanPham',compact('products','category','categories'));
+        return view('pages.ChiTietLoaiSanPham',compact('products','cate','categories'));
     }
 
     public function showAddForm(){

@@ -40,7 +40,6 @@ Route::middleware(["loginadmin",])->group(function (){
     Route::post('/admin/bill/delete/{id}','BillController@delete');
     Route::get('/admin/bill/bill-by-customer/{id}','BillController@showListByCustomer')->name('show.list.by_customer');
     Route::get('/admin/bill/bill-detail/{id}','BillController@showBillDetail')->name('show.bill.detail');
-    Route::get('/admin/bill-detail/deleteBill/{id}','BillController@deleteBill')->name('delete.bill-detail');
 
 //* phần quản trị
 });
@@ -69,13 +68,16 @@ Route::get('del-cart/{id}',['as'=>'xoagiohang', 'uses'=>'HomeController@delItemC
 
 //login
 
-Route::get('dang-nhap',['as'=>'login', 'uses'=>'HomeController@getLogin']);
+Route::get('dang-nhap',['as'=>'login', 'uses'=>'HomeController@Login']);
 Route::post('dang-nhap',['as'=>'login', 'uses'=>'HomeController@postLogin']);
-Route::get('dang-ki',['as'=>'signin', 'uses'=>'HomeController@getSignin']);
+Route::get('dang-ki',['as'=>'signin', 'uses'=>'HomeController@Signin']);
 Route::post('dang-ki',['as'=>'signin', 'uses'=>'HomeController@postSignin']);
 Route::get('dang-xuat',['as'=>'logout', 'uses'=>'HomeController@postLogout']);
 Route::get('dang-xuat-admin',['as'=>'logout_admin', 'uses'=>'HomeController@postLogout_admin']);
 
+Route::get('search',['as'=>'search', 'uses'=>'HomeController@getSearch']);
+
+//mail tu dong
 Route::get('search',['as'=>'search', 'uses'=>'HomeController@getSearch']);
 Auth::routes();
 

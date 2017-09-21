@@ -8,8 +8,6 @@
     <link type="text/css" rel="stylesheet" href="/css/bootstrap.min.css">
     <script type="text/javascript" src="/js/jquery-3.2.1.min.js"></script>
     <script type="text/javascript" src="/js/bootstrap.min.js"></script>
-    <script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
-    <script>tinymce.init({ selector:'textarea' });</script>
     <title>Quản trị</title>
 </head>
 <body>

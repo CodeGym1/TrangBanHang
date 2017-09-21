@@ -23,7 +23,7 @@
                 <div class="col-md-8 col-md-offset-1 content1-right">
                     <div class="row">
                         <div class="col-md-4">
-                               <h3>{{$category->name}}</h3><hr class="gach_full">
+                               <h3>{{$cate->name}}</h3><hr class="gach_full">
                         </div>
                     </div>
                     <div class="row">

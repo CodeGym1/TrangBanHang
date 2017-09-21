@@ -5,6 +5,7 @@ use App\Product;
 use App\Category;
 use App\Slide;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use Session;
 use App\Cart;
 use App\Customer;
@@ -18,10 +19,10 @@ class HomeController extends Controller
 {
     public function getIndex(){
         $slides = Slide::all();
-        $products = Product::paginate(4);
-        $newProducts = Product::where('new',1)->paginate(6);
+        $newProducts = Product::where('new',2)->paginate(6);
+        $hotProducts = Product::where('new',1)->paginate(4);
         $categories = Category::with("products")->get();
-       return view('pages.TrangChu',compact('products','slides','newProducts','categories'));
+       return view('pages.TrangChu',compact('hotProducts','slides','newProducts','categories'));
     }
 
     public function addtoCart(Request $req,$id){
@@ -55,6 +56,7 @@ class HomeController extends Controller
 
     public function postCheckout(Request $req){
         $cart = Session::get('cart');
+        $email = $req->input('email');
 
         $customer = new Customer;
         $customer->name = $req->name;
@@ -62,6 +64,7 @@ class HomeController extends Controller
         $customer->email = $req->email;
         $customer->address = $req->address;
         $customer->phone_number = $req->phone;
+        $customer->note = $req->notes;
         $customer->save();
 
         $bill = new Bill;
@@ -80,17 +83,26 @@ class HomeController extends Controller
             $bill_detail->price = $value['price'];
             $bill_detail->save();
         }
+
+//        $data = ['content'=>$cart->items,'totalPrice' => $cart->totalPrice, 'totalQty' => $cart->totalQty];
+//        Mail::send('mails.order',$data,function ($message) use ($email){
+//            $message->from('phanchaudhv@gmail.com','@Amobile');
+//            $message->to($email)->subject('Đơn hàng của bạn tại @Amobile');
+//        });
+
         Session::forget('cart');
-        return redirect()->back()->with('thongbao','Đặt hàng thành công');
-        return view ('TrangChu');
+        echo "<script>
+                alert('Cảm ơn bạn đã đặt hàng. Nhân viên của chúng tôi sẽ liên lạc với bạn sau ít phút nữa. Bạn có thể check lại đơn hàng của bạn trong Email !');
+                window.location ='".url('/')."'
+               </script>";
 
     }
 
-    public function getLogin(){
-        return view('auth.login');
+    public function login(){
+        return view('pages.DangNhap');
     }
 
-    public function getSignin(){
+    public function Signin(){
         return view('pages.DangKy');
     }
 

@@ -20,7 +20,7 @@ class LoginAdminMiddleware
             $user = Auth::user();
             if($user->role == 1){
                 return $next($request);
-            }else{ echo 'Cần đăng nhập đúng tài khoản cho quản trị viên';}
+            }
         }
         else{
            return redirect('/admin/login');
