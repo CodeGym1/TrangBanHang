@@ -20,7 +20,7 @@ class CreateBillsTable extends Migration
             $table->integer('total');
             $table->string('payment');
             $table->string('note');
-            $table->string('status');
+            $table->string('status')->default('chua giao hang');
             $table->timestamps();
             $table->foreign('customer_id')->references('id')->on('customers');
         });

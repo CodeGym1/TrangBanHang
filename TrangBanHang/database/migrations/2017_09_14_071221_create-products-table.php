@@ -18,7 +18,7 @@ class CreateProductsTable extends Migration
             $table->string('name');
             $table->integer('category_id')->unsigned();
             $table->String('description');
-            $table->integer('price');
+            $table->double('price');
             $table->String('image');
             $table->String('unit');
             $table->boolean('new');

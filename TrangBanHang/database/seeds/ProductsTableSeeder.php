@@ -17,7 +17,7 @@ class ProductsTableSeeder extends Seeder
         $product->name = 'Inphone 7 32GB';
         $product->category_id = '3';
         $product->description = 'fefefef';
-        $product->price = 10000000;
+        $product->price = 1000000;
         $product->image = 'iphone-78-400x460.png';
         $product->unit = 'hop';
         $product->new = '1';
@@ -29,7 +29,7 @@ class ProductsTableSeeder extends Seeder
         $product->name = 'Inphone 7 64GB';
         $product->category_id = '3';
         $product->description = 'fefefef';
-        $product->price = 10000000;
+        $product->price = 11000000;
         $product->image = 'Iphone7-64GB.jpg';
         $product->unit = 'hop';
         $product->new = '1';
@@ -105,7 +105,7 @@ class ProductsTableSeeder extends Seeder
 
         $product = new Product();
         $product->id = 10;
-        $product->name = 'Samsung Galaxy J7 Pro (Super Combo 4G)';
+        $product->name = 'Samsung Galaxy J7 Pro';
         $product->category_id = '2';
         $product->description = 'fefefef';
         $product->price = 6990000;

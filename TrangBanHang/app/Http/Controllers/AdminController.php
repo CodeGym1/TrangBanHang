@@ -41,10 +41,16 @@ class AdminController extends Controller
     public function editPassword(Request $request, $id ){
         $id = Auth::user()->id;
         $user = User::find($id);
-        if($request->input('newpassword' == $request->input('repassword'))){
+        if($request->input('newpassword') == $request->input('repassword')){
             $user->password = Hash::make($request->newpassword);
-        }else "khong trung mat khau";
-        $user->save();
-        return redirect()->route('show.index');
+            $user->save();
+            echo "<script>
+                alert('Đổi mật khẩu thành công');
+                window.location ='".url('/admin/index')."'
+               </script>";
+        }else echo "<script>
+                alert('Không khớp mật khẩu');
+                window.location ='".url('/admin/index')."'
+               </script>";
     }
 }
