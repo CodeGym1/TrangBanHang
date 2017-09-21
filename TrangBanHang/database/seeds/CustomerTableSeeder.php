@@ -16,7 +16,7 @@ class CustomerTableSeeder extends Seeder
         $user->id = '1';
         $user->user_id = '1';
         $user->name = 'phan van chau';
-        $user->gender = '1';
+        $user->gender = 'nam';
         $user->address = 'ha noi';
         $user->email = 'phanchaudhv@gmail.com';
         $user->phone_number = '09393933';
@@ -28,7 +28,7 @@ class CustomerTableSeeder extends Seeder
         $user->id = '2';
         $user->user_id = '2';
         $user->name = 'phan van Nhat';
-        $user->gender = '0';
+        $user->gender = 'nữ';
         $user->address = 'ha noi';
         $user->email = 'phanchaudhv@gmail.com';
         $user->phone_number = '09393933';

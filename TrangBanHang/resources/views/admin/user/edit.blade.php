@@ -11,7 +11,7 @@
                     </div>
                     <div class="form-group">
                         <label class="col-md-4">Re Password</label>
-                        <input class="form-control" type="text"  name="repasword" >
+                        <input class="form-control" type="text"  name="repassword" >
 
                     <div class="text-center">
                         <input class="btn btn-success " type="submit" name="edit" value="Sửa">
