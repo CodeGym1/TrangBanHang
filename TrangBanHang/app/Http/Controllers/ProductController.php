@@ -30,7 +30,7 @@ class ProductController extends Controller
         $product->unit = $request->input('unit');
         $image=$request->file("image");
         if ($request->hasFile('image')){
-            $image->move('images',$image->getClientOriginalName());
+            $image->move('/images/',$image->getClientOriginalName());
             $product->image=$image->getClientOriginalName();
         }else{
             return view('error.error_image');
@@ -88,9 +88,9 @@ class ProductController extends Controller
         return view('admin.product.listbytype',["products" => $products,"categories" => $categories,"cate_by_id" => $cate_by_id]);
     }
 
-    public function getChiTiet(Request $req){
+    public function getChiTiet(Request $req,$id){
         $products = Product::where('id',$req->id)->first();
-        $category = Category::where('id',$req->id)->first();
+        $category = Category::where('id',$products->category_id)->first();
         return view('pages.ChiTietSanPham',compact('products','category'));
     }
 

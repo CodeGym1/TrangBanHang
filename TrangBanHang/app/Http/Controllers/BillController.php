@@ -45,13 +45,7 @@ class BillController extends Controller
     public function showBillDetail($id){
         $bill_details = BillDetail::where('bill_id',$id)->get();
         $bills = Bill::all();
-        $billbyid = Bill::find($id);
-        return view ('admin.bill.bill_detail',compact('bill_details','bills','billbyid'));
-    }
-    public function deleteBill($id){
-        BillDetail::where('bill_id',$id)->delete();
-        Bill::where('id',$id)->delete();
-        return redirect()->action('BillController@showList');
+        return view ('admin.bill.bill_detail',compact('bill_details','bills'));
     }
 
 }

@@ -14,7 +14,7 @@ class CategoriesTableSeeder extends Seeder
     {
         $category = new Category();
         $category->id = 1;
-        $category->name = 'LG';
+        $category->name = 'Asus';
         $category->save();
 
         $category = new Category();
@@ -25,6 +25,26 @@ class CategoriesTableSeeder extends Seeder
         $category = new Category();
         $category->id = 3;
         $category->name = 'Iphone';
+        $category->save();
+
+        $category = new Category();
+        $category->id = 4;
+        $category->name = 'NoKia';
+        $category->save();
+
+        $category = new Category();
+        $category->id = 5;
+        $category->name = 'Oppo';
+        $category->save();
+
+        $category = new Category();
+        $category->id = 6;
+        $category->name = 'Lumia';
+        $category->save();
+
+        $category = new Category();
+        $category->id = 7;
+        $category->name = 'Sony';
         $category->save();
     }
 }

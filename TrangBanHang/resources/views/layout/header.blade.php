@@ -3,7 +3,7 @@
         <div class="row ">
             <div class="col-md-3 col-sm-3 col-xs-6">
                 <div class="row khung">
-                    <img class="img-responsive" src="/images/logo.png " >
+                    <img class="img-responsive" src="{{asset('/images/logo.png')}}" >
                 </div>
             </div>
             <div class="col-md-6 col-sm-6 khung hidden-xs ">

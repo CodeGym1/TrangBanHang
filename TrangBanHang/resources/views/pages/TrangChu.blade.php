@@ -14,7 +14,7 @@
                 <div class="carousel-inner" role="listbox">
 
                     <div class="item active">
-                        {{--<a href="#"><img src="{{asset('/images/home-slider-1.jpg')}}" alt="Image" width="100%"></a>--}}
+                        <a href="#"><img src="{{asset('/images/home-slider-1.jpg')}}" alt="Image" width="100%"></a>
                     </div>
                     @foreach($slides as $sl)
                         <div class="item ">
@@ -67,7 +67,7 @@
                 </div>
 
                 <div class="row">
-                    @foreach($products as $product)
+                    @foreach($hotProducts as $product)
                     <div class="col-md-6 col-s  m-6">
                         <div class="row">
                             <div class="col-md-6 col-xs-6 col-sm-6">
@@ -112,7 +112,7 @@
                 @foreach($newProducts as $newProduct)
                 <div class="col-md-2 col-xs-6 col-sm-3">
                     <a href="{{route('chitietsanpham',$newProduct->id)}}">
-                        <img class="img-responsive img-thumbnail" src="images/{{$newProduct->image}}" width="100%">
+                        <img class="img-responsive img-thumbnail" src="/images/{{$newProduct->image}}" width="100%">
                     </a>
                     <div class="caption text-center height">
                         <span ><strong><a class="red_hover" href="{{route('chitietsanpham',$newProduct->id)}}">{{$newProduct->name}}</a></strong></span>

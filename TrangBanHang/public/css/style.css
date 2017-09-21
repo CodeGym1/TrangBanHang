@@ -69,10 +69,10 @@ body{
 
 }
 .collapse .nav .dropdown .dropdown-menu li a:hover{
-    color: red;
+    color: #FF5C01;
 }
 .list-group-item .dropdown-menu li a:hover{
-    color: red;
+    color: #FF5C01;
 }
 
 .list-group-item .dropdown-menu li{

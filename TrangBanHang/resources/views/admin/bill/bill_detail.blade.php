@@ -45,19 +45,14 @@
                     @foreach($bill_details as $bill_detail)
                         <tr>
                             <td class="text-center">{{  $bill_detail->bill_id}}</td>
-                            <td>{{$bill_detail->product->name}}</td>
-                            <td>{{$bill_detail->quantity}}</td>
+                            <td>{{  $bill_detail->product->name}}</td>
+                            <td>{{  $bill_detail->quantity}}</td>
                             <td class="text-center">{{  $bill_detail->price}}</td>
                         </tr>
-                    @endforeach
+                        @endforeach
                          <tr>
-                            <td colspan="4" class="text-center">Tổng giá trị đơn hàng là: {{$bill_detail->bill->total}} Đồng</td>
+                            <td colspan="4" class="text-center">Tổng giá trị đơn hàng là: {{  $bill_detail->bill->total}} Đồng</td>
                          </tr>
-                         <tr>
-
-                             <td colspan="4" class="text-center"><a href="{{route('delete.bill-detail',$billbyid->id)}}">Xóa</a></td>
-                         </tr>
-
                 </table>
             </div>
             </div>
