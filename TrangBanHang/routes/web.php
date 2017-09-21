@@ -40,6 +40,7 @@ Route::middleware(["loginadmin",])->group(function (){
     Route::post('/admin/bill/delete/{id}','BillController@delete');
     Route::get('/admin/bill/bill-by-customer/{id}','BillController@showListByCustomer')->name('show.list.by_customer');
     Route::get('/admin/bill/bill-detail/{id}','BillController@showBillDetail')->name('show.bill.detail');
+    Route::get('/admin/bill-detail/deleteBill/{id}','BillController@deleteBill')->name('delete.bill-detail');
 
 //* phần quản trị
 });

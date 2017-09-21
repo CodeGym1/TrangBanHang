@@ -62,7 +62,6 @@ class HomeController extends Controller
         $customer->email = $req->email;
         $customer->address = $req->address;
         $customer->phone_number = $req->phone;
-        $customer->note = $req->notes;
         $customer->save();
 
         $bill = new Bill;

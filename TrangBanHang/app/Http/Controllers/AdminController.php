@@ -43,8 +43,11 @@ class AdminController extends Controller
         $user = User::find($id);
         if($request->input('newpassword' == $request->input('repassword'))){
             $user->password = Hash::make($request->newpassword);
-        }else "khong trung mat khau";
-        $user->save();
-        return redirect()->route('show.index');
+            $user->save();
+            return redirect()->route('show.index');
+        }  echo "Mật khẩu không khớp"; 
+
+
+
     }
 }

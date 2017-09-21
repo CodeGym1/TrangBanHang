@@ -41,8 +41,8 @@
                             <td>{{$bill->note}}</td>
                             <td>{{$bill->status}}</td>
                             <td><a href="{{route('show.bill.detail',$bill->id)}}">Chi tiết</a> </td>
-                            <td><a href="{{route('show.edit.bill',$bill->id)}}">Sửa</a> </td>
-                            <td><a href="{{route('show.delete.form',$bill->id)}}">Xóa</a> </td>
+                            <td><a href="{{route('show.edit.bill',$bill->id)}}"><i class="glyphicon glyphicon-edit">Sửa</a> </td>
+                            <td><a href="{{route('show.delete.form',$bill->id)}}"><i class="glyphicon glyphicon-trash">Xóa</a> </td>
                         </tr>
                     @endforeach
 

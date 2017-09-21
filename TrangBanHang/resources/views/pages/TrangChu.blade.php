@@ -14,7 +14,7 @@
                 <div class="carousel-inner" role="listbox">
 
                     <div class="item active">
-                        <a href="#"><img src="/images/home-slider-1.jpg" alt="Image" width="100%"></a>
+                        {{--<a href="#"><img src="{{asset('/images/home-slider-1.jpg')}}" alt="Image" width="100%"></a>--}}
                     </div>
                     @foreach($slides as $sl)
                         <div class="item ">
