@@ -8,8 +8,8 @@
                     <div class="form-group">
                         <label class="col-md-3">Loại sản phẩm</label>
                         <select name="type">
-                            @foreach($types as $type)
-                                <option value="{{$type->id}}">{{$type->name}}</option>
+                            @foreach($categories as $category)
+                                <option value="{{$category->id}}">{{$category->name}}</option>
                             @endforeach
                         </select>
                     </div>
@@ -27,8 +27,8 @@
                     </div>
                     <div class="form-group">
                         <label class="col-md-4">Hình ảnh</label>
-                        <input class="" type="file"  name="image">
-                        <img src="/storage/images/{{$product->image}}" style="height: 100px; width: 80px">
+                        <input class="" type="file"  name="image"><br>
+                        <img src="/images/{{$product->image}}" style="height: 100px; width: 80px">
                         <input type="text" readonly  value="{{$product->image}}" name="img" >
                     </div>
                     <div class="form-group">
@@ -37,8 +37,7 @@
                     </div>
                     <div class="form-group">
                         <label class="col-md-4">Mô tả</label>
-                        <textarea class="form-control" rows="20" cols="10">{{$product->description}}</textarea>
-                        {{--<input class="form-control" type="text" name="description" value="{{$product->description}}">--}}
+                        <textarea class="form-control" rows="20" cols="10"name="description">{{$product->description}}</textarea>
                     </div>
                     <div class="text-center">
                         <input class="btn btn-success " type="submit" name="edit" value="Sửa">

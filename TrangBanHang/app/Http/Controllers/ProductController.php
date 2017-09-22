@@ -30,7 +30,7 @@ class ProductController extends Controller
         $product->unit = $request->input('unit');
         $image=$request->file("image");
         if ($request->hasFile('image')){
-            $image->move('/images/',$image->getClientOriginalName());
+            $image->move('images',$image->getClientOriginalName());
             $product->image=$image->getClientOriginalName();
         }else{
             return view('error.error_image');
@@ -46,7 +46,7 @@ class ProductController extends Controller
             $product->price = $request->input('price');
             if($request->hasFile('image')){
                 $image = $request->file("image");
-                $image->move('/images/',$image->getClientOriginalName());
+                $image->move('images',$image->getClientOriginalName());
                 $product->image=$image->getClientOriginalName();
             }
             $product->new = $request->input('new');
